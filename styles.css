@@ -4388,7 +4388,7 @@ body,
     padding: 0.95rem 1rem;
   }
 
-  .btn-magnetic {
+  .btn-magnetic:not(.floating-contact-btn) {
     width: 100%;
     justify-content: center;
   }
@@ -4575,28 +4575,28 @@ body,
 }
 
 .floating-contact-btn {
-  display: inline-flex;
+  position: relative;
+  display: flex;
   align-items: center;
-  gap: 0.65rem;
-  padding: 0.85rem 1.45rem;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  padding: 0;
   background: rgba(14, 16, 21, 0.92);
   border: 1.5px solid var(--accent-ember);
   color: #FFFFFF;
-  border-radius: var(--radius-pill);
-  font-family: var(--font-heading);
-  font-size: 0.88rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
+  border-radius: 50%;
   text-decoration: none;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 25px var(--accent-ember-glow);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   transition: transform 0.25s var(--ease-out-expo), box-shadow 0.25s ease, background 0.25s ease, border-color 0.25s ease;
   cursor: pointer;
+  flex-shrink: 0;
 }
 
 .floating-contact-btn:hover {
-  transform: translateY(-3px) scale(1.03);
+  transform: translateY(-3px) scale(1.06);
   background: linear-gradient(135deg, rgba(255, 75, 38, 0.25) 0%, rgba(255, 149, 0, 0.25) 100%), #0E1015;
   border-color: var(--accent-amber);
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.9), 0 0 35px var(--accent-amber-glow);
@@ -4604,26 +4604,32 @@ body,
 }
 
 .floating-contact-btn:active {
-  transform: translateY(0) scale(0.98);
+  transform: translateY(0) scale(0.96);
 }
 
 .floating-contact-btn .beacon-pulse-dot {
-  width: 8px;
-  height: 8px;
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  width: 9px;
+  height: 9px;
   border-radius: 50%;
   background: var(--accent-ember);
   box-shadow: 0 0 10px var(--accent-ember);
   animation: pulseBeacon 2s infinite ease-in-out;
+  pointer-events: none;
 }
 
 .floating-contact-btn .contact-fab-icon {
+  width: 22px;
+  height: 22px;
   flex-shrink: 0;
   stroke: var(--accent-amber);
-  transition: transform 0.25s ease;
+  transition: transform 0.25s ease, stroke 0.25s ease;
 }
 
 .floating-contact-btn:hover .contact-fab-icon {
-  transform: scale(1.15) rotate(-5deg);
+  transform: scale(1.15) rotate(10deg);
   stroke: #FFFFFF;
 }
 
@@ -4649,7 +4655,23 @@ body,
     right: 1.25rem;
   }
   .floating-contact-btn {
-    padding: 0.65rem 1.15rem;
-    font-size: 0.8rem;
+    width: 48px !important;
+    height: 48px !important;
+    padding: 0 !important;
+    border-radius: 50% !important;
+  }
+  .floating-contact-btn .beacon-pulse-dot {
+    top: 2px;
+    right: 2px;
+    width: 8px;
+    height: 8px;
+  }
+  .floating-contact-btn .contact-fab-icon {
+    width: 20px;
+    height: 20px;
+  }
+  .footer-bottom-hud {
+    padding-bottom: 2.5rem;
+    padding-right: 3.5rem;
   }
 }
