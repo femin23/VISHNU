@@ -358,7 +358,7 @@ body.cursor-hover .custom-cursor-ring {
   box-shadow: 0 0 25px rgba(0, 242, 254, 0.55), 0 0 40px rgba(255, 75, 38, 0.35);
 }
 
-@media (pointer: coarse) {
+@media (pointer: coarse), (max-width: 1024px) {
 
   .custom-cursor-dot,
   .custom-cursor-ring {
